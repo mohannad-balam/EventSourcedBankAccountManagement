@@ -2,8 +2,8 @@
 
 public class InMemoryEventStore : IEventStore
 {
-    private readonly Dictionary<Guid, List<object>> _store = new();
-    private readonly List<(Guid agg, object evt)> _allEvents = new();
+    private readonly Dictionary<Guid, List<object>> _store = [];
+    private readonly List<(Guid agg, object evt)> _allEvents = [];
 
     public Task<IEnumerable<object>> LoadStream(Guid aggregateId)
     {
@@ -15,7 +15,7 @@ public class InMemoryEventStore : IEventStore
     {
         if (!_store.TryGetValue(aggregateId, out var list))
         {
-            list = new();
+            list = [];
             _store[aggregateId] = list;
         }
         foreach (var e in events)
