@@ -52,8 +52,10 @@ namespace API.Controllers
         [HttpGet("{id}/history")]
         public IActionResult GetHistory(Guid id)
         {
-            var h = _proj.History.Where(x => x.accountId == id).ToList();
-            return Ok(h);
+            if (_proj.History.TryGetValue(id, out var list))
+                return Ok(list);
+
+            return NotFound($"No history found for account ID: {id}");
         }
     }
 }
