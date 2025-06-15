@@ -1,10 +1,6 @@
-﻿// Domain/Aggregates/Account.cs
-using EventSourcedBankAccountManagement.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EventSourcedBankAccountManagement.Domain.Events;
 
-namespace Domain.Aggregates
+namespace EventSourcedBankAccountManagement.Domain.Aggregates
 {
     public class Account
     {

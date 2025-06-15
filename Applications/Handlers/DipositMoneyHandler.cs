@@ -1,4 +1,4 @@
-﻿using Domain.Aggregates;
+﻿using EventSourcedBankAccountManagement.Domain.Aggregates;
 using EventSourcedBankAccountManagement.Domain.Commands;
 using EventSourcedBankAccountManagement.Infrastructure.EventStore;
 

@@ -1,11 +1,9 @@
-﻿// API/Controllers/AccountController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using EventSourcedBankAccountManagement.Applications.Handlers;
 using EventSourcedBankAccountManagement.Infrastructure.Projections;
-using static System.Net.Mime.MediaTypeNames;
 using EventSourcedBankAccountManagement.Domain.Commands;
 
-namespace API.Controllers
+namespace EventSourcedBankAccountManagement.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

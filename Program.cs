@@ -1,29 +1,19 @@
-using EventSourcedBankAccountManagement.Applications.Handlers;
-using EventSourcedBankAccountManagement.Infrastructure.EventStore;
+using EventSourcedBankAccountManagement;
 using EventSourcedBankAccountManagement.Infrastructure.Projections;
-using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IEventStore, InMemoryEventStore>();
-builder.Services.AddSingleton<AccountBalanceProjection>();
-builder.Services.AddSingleton<ProjectionWorker>();
-builder.Services.AddTransient<OpenAccountHandler>();
-builder.Services.AddTransient<DipositMoneyHandler>();
-builder.Services.AddTransient<WithdarwMoneyHandler>();
+builder.Services.RegisterEventsSourcingServices();
 
 
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
